@@ -21,3 +21,17 @@ add_custom_command(
     COMMAND $(CMAKE_COMMAND) -E copy_directory
         $(CMAKE_SOURCE_DIR)/resources $<TARGET_FILE_DIR:LearningCMake>/resources
 )
+
+enable_testing()
+
+add_test(NAME GreetingTest COMMAND LearningCMake)
+set_tests_properties(
+    GreetingTest
+    PROPERTIES PASS_REGULAR_EXPRESSION "^Hello, world!\n$"
+)
+
+add_test(NAME VersionTest COMMAND LearningCMake -v)
+set_tests_properties(
+    VersionTest
+    PROPERTIES PASS_REGULAR_EXPRESSION "Version: ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}"
+)

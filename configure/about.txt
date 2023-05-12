@@ -1,0 +1,2 @@
+version=@LearningCMake_VERSION_MAJOR@.@LearningCMake_VERSION_MINOR@
+build=@BUILD_DATE@ @BUILD_TIME@
