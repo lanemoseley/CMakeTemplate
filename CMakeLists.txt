@@ -9,3 +9,10 @@ add_executable(
     LearningCMake
     main.cpp
 )
+
+# After build, copy the resources directory
+add_custom_command(
+    TARGET LearningCMake POST_BUILD
+    COMMAND $(CMAKE_COMMAND) -E copy_directory
+        $(CMAKE_SOURCE_DIR)/resources $<TARGET_FILE_DIR:LearningCMake>/resources
+)
