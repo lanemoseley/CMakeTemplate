@@ -14,13 +14,13 @@ make -C ./build
 
 ## Running the Tests
 
-**CMake Unit Tests (from the top-level CMakeLists.txt file):**
+**Run All Unit Tests:**
 
 ```
 ctest --test-dir ./build
 ```
 
-**Boost Unit Tests:**
+**Run Boost Unit Tests:**
 
 ```
 ctest --test-dir ./build/test

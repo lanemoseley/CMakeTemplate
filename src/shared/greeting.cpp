@@ -2,13 +2,19 @@
 
 Greeting::Greeting() {}
 
-void Greeting::printGreetingFromFile() {
-  std::ifstream greetingFile("resources/greeting.txt");
-  if (greetingFile.is_open()) {
+std::string Greeting::getGreetingFromFile() {
+  std::ifstream greetingFile;
+  greetingFile.exceptions(std::ios::failbit); // throw if failbit sets
+
+  try {
+    boost::filesystem::path p(SOURCE_DIR);
+    p /= "resources/greeting.txt";
+    greetingFile.open(p);
     std::string greeting;
     getline(greetingFile, greeting);
-    printf("%s\n", greeting.c_str());
-  } else {
-    printf("ERROR: rdstate %d\n", greetingFile.rdstate());
+    greetingFile.close();
+    return greeting;
+  } catch (const std::ifstream::failure &e) {
+    throw;
   }
 }

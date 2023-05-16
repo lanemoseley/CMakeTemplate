@@ -1,16 +1,11 @@
+// Creates a stub for the test module initialization (the main entry part) and
+// defines the name of the master test suite.
 #define BOOST_TEST_MODULE GreetingTest
-#include "greeting.h"
+
+#include "shared/greeting.h"
 #include <boost/test/included/unit_test.hpp>
 
 BOOST_AUTO_TEST_CASE(GreetingTest1) {
   Greeting greeting;
-  greeting.printGreetingFromFile();
-
-  // To simplify this example test, let's suppose we'll test 'float'.
-  // Some test are stupid, but all should pass.
-  float x = 9.5f;
-
-  BOOST_CHECK(x != 0.0f);
-  BOOST_CHECK_EQUAL((int)x, 9);
-  BOOST_CHECK_CLOSE(x, 9.5f, 0.0001f); // Checks differ no more then 0.0001%
+  BOOST_CHECK_EQUAL("Hello, world!", greeting.getGreetingFromFile());
 }

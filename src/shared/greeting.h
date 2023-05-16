@@ -1,14 +1,15 @@
 #ifndef _GREETING_H_
 #define _GREETING_H_
 
+#include "config.h"
+#include <boost/filesystem.hpp>
 #include <fstream>
-#include <stdio.h>
 
 class Greeting {
 
 public:
   Greeting();
-  void printGreetingFromFile();
+  std::string getGreetingFromFile();
 };
 
 #endif

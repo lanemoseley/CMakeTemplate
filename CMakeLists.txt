@@ -19,6 +19,10 @@ string(TIMESTAMP BUILD_DATE "%Y%m%d")
 string(TIMESTAMP BUILD_TIME "%H%M%S")
 configure_file(configure/about.txt resources/about.txt)
 
+# Configure Path to Top-Level Project Directory
+configure_file(configure/config.h.in ${CMAKE_BINARY_DIR}/config.h)
+include_directories(${CMAKE_BINARY_DIR})
+
 # Gather Sources
 file(GLOB_RECURSE INC_FILES src/*/*.h)
 file(GLOB_RECURSE SRC_FILES src/*/*.cpp)
